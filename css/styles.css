@@ -1,0 +1,649 @@
+
+/* =========================================
+   INVITACIÓN PARA ASHLEY
+   Paleta: cielo azul y nubes
+   ========================================= */
+
+/* Variables y configuración general */
+
+:root {
+    --cream: #f4faff;
+    --red: #318de8;
+
+    --blue-night: #071d49;
+    --blue-deep: #1458ac;
+    --blue-sky: #318de8;
+    --blue-light: #91d9f7;
+    --cloud-white: #f4faff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--blue-night);
+    color: var(--cream);
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow: hidden;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* =========================================
+   ESCENARIO PRINCIPAL
+   ========================================= */
+
+main {
+    min-height: 100dvh;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow: hidden;
+
+    background: radial-gradient(
+        ellipse at 50% 25%,
+        #287bc9 0%,
+        #124a91 45%,
+        #071d49 100%
+    );
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.24;
+
+    background-image: radial-gradient(
+        #ffffff 0.7px,
+        transparent 1px
+    );
+
+    background-size: 31px 31px;
+    animation: stars 25s linear infinite;
+    z-index: -1;
+}
+
+@keyframes stars {
+    to {
+        background-position: 100px -180px;
+    }
+}
+
+/* =========================================
+   ESCENAS Y TRANSICIONES
+   ========================================= */
+
+.scene {
+    width: min(100%, 480px);
+    text-align: center;
+    display: none;
+    animation: appear 0.8s ease both;
+}
+
+.scene.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade {
+    animation: appear 1s both;
+}
+
+/* =========================================
+   TIPOGRAFÍA
+   ========================================= */
+
+.eyebrow {
+    font: 11px system-ui, sans-serif;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: #c2e9ff;
+}
+
+.title {
+    font-size: clamp(38px, 10vw, 62px);
+    font-weight: normal;
+    line-height: 1.12;
+    margin: 16px 0;
+}
+
+.subtitle {
+    font: 14px/1.8 system-ui, sans-serif;
+    color: #d8edff;
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+
+.primary {
+    border: 1px solid #a9e6ff;
+
+    background: linear-gradient(
+        120deg,
+        #318de8,
+        #1458ac
+    );
+
+    color: white;
+    padding: 15px 27px;
+    border-radius: 40px;
+    margin-top: 26px;
+    letter-spacing: 0.09em;
+
+    box-shadow: 0 8px 30px #1a77dc59;
+    transition: transform 0.2s;
+}
+
+.primary:active {
+    transform: scale(0.96);
+}
+
+.ghost {
+    border: 1px solid #91d9f7;
+    background: transparent;
+    color: #f4faff;
+
+    padding: 11px 17px;
+    border-radius: 30px;
+    font: 12px system-ui, sans-serif;
+}
+
+/* =========================================
+   SOBRE INTERACTIVO
+   ========================================= */
+
+.envelope {
+    width: 250px;
+    height: 160px;
+
+    background: linear-gradient(
+        145deg,
+        #e2f5ff,
+        #82b9e8
+    );
+
+    border-radius: 5px;
+    position: relative;
+    margin: 65px auto 45px;
+
+    box-shadow: 0 20px 65px #02184173;
+
+    transform: rotate(-3deg);
+    transition: transform 0.7s;
+
+    cursor: pointer;
+    border: 0;
+    display: block;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0
+    );
+
+    background: #d6edff;
+    filter: drop-shadow(0 3px 2px #19538c59);
+}
+
+.envelope::after {
+    content: '♥️';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -10%);
+
+    display: grid;
+    place-items: center;
+
+    background: #287bc9;
+    color: #ffffff;
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    box-shadow: 0 3px 8px #0f5db980;
+}
+
+.envelope:hover {
+    transform: rotate(0deg) translateY(-6px);
+}
+
+/* =========================================
+   CARTA ROMÁNTICA
+   ========================================= */
+
+.paper {
+    background: #f4faff;
+    color: #173a65;
+
+    padding: 35px 25px;
+    border-radius: 4px;
+
+    box-shadow: 0 20px 70px #031e5066;
+
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+
+    border: 1px solid #2b7eca59;
+    pointer-events: none;
+}
+
+.paper h2 {
+    font-weight: normal;
+    font-size: 35px;
+}
+
+.paper p {
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+/* Corazón de la carta */
+
+.heart {
+    font-size: 25px;
+    color: #318de8;
+    animation: beat 2s infinite;
+}
+
+@keyframes beat {
+    50% {
+        transform: scale(1.22);
+    }
+}
+
+/* =========================================
+   ANIMACIÓN DE LA DEDICATORIA
+   ========================================= */
+
+.dedication {
+    opacity: 0;
+    transform: translateY(9px);
+
+    animation: dedicationIn 1.5s ease forwards;
+}
+
+.line-1 {
+    animation-delay: 0.35s;
+}
+
+.line-2 {
+    animation-delay: 2.1s;
+    color: #1458ac;
+    font-weight: 600;
+}
+
+@keyframes dedicationIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scene:not(.active) .dedication {
+    animation: none;
+}
+
+.scene.active .dedication {
+    animation-name: dedicationIn;
+}
+
+/* =========================================
+   REVELACIÓN CINEMATOGRÁFICA
+   ========================================= */
+
+/* Fondo de la revelación */
+
+main.blackout {
+    background:
+        linear-gradient(
+            rgba(4, 26, 74, 0.20),
+            rgba(4, 26, 74, 0.48)
+        ),
+        url("../assets/imagenes/fondo-junior.jpg")
+        center center / cover no-repeat;
+
+    transition: background 1s;
+}
+
+main.blackout::before {
+    opacity: 0;
+}
+
+/* Luces del concierto */
+
+#reveal .beam {
+    position: absolute;
+    top: -35%;
+
+    height: 125%;
+    width: 36%;
+
+    background: linear-gradient(
+        #5bcfffaa,
+        transparent
+    );
+
+    filter: blur(30px);
+    transform-origin: top;
+
+    pointer-events: none;
+
+    animation: beam 3s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+#reveal .beam.left {
+    left: 4%;
+    transform: rotate(-24deg);
+}
+
+#reveal .beam.right {
+    right: 4%;
+    transform: rotate(24deg);
+    animation-delay: -1.5s;
+}
+
+@keyframes beam {
+    to {
+        opacity: 0.25;
+        filter: blur(48px);
+    }
+}
+
+/* Aparición del nombre JUNIOR H */
+
+.reveal-title {
+    font: 900 clamp(55px, 16vw, 105px)/0.9
+        Impact, 'Arial Narrow', sans-serif;
+
+    letter-spacing: 0.04em;
+    color: #ffffff;
+
+    text-shadow:
+        0 0 18px #87daffd9,
+        0 0 45px #1e7cefaa;
+
+    animation: impact 0.85s 0.5s both;
+}
+
+@keyframes impact {
+    from {
+        opacity: 0;
+        transform: scale(1.7);
+        filter: blur(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* =========================================
+   BOLETO DIGITAL
+   ========================================= */
+
+
+/* =========================================
+   BOLETO - LIQUID GLASS
+   ========================================= */
+
+.ticket {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    margin: 15px auto 0;
+    max-width: 350px;
+    padding: 15px 18px;
+
+    border-radius: 22px;
+
+    /* Vidrio translúcido */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.24),
+        rgba(175, 225, 255, 0.10) 45%,
+        rgba(12, 62, 135, 0.22)
+    );
+
+    /* Desenfoque del cielo detrás */
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+
+    /* Borde de cristal */
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    /* Profundidad y reflejos interiores */
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.80),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.15),
+        0 12px 35px rgba(3, 35, 90, 0.30),
+        0 0 30px rgba(135, 215, 255, 0.12);
+}
+
+/* Reflejo suave sobre el vidrio */
+
+.ticket::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.30),
+        transparent 42%
+    );
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* =========================================
+   CONTENIDO DEL BOLETO COMPACTO
+   ========================================= */
+
+.ticket-label {
+    display: block;
+    color: #e4f5ff;
+    font: 10px system-ui, sans-serif;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+.ticket-artist {
+    margin: 5px 0 2px;
+    color: #ffffff;
+    font: 700 23px system-ui, sans-serif;
+    text-align: center;
+    text-shadow: 0 1px 6px rgba(5, 35, 85, 0.4);
+}
+
+.ticket-event {
+    margin: 0;
+    color: #e3f5ff;
+    font: 10px system-ui, sans-serif;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+.ticket-divider {
+    height: 1px;
+    margin: 9px 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+}
+
+.ticket-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.ticket-field {
+    min-width: 0;
+    text-align: left;
+}
+
+.ticket-field span {
+    display: block;
+    margin-bottom: 3px;
+    color: #c8e9ff;
+    font: 9px system-ui, sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.ticket-field strong {
+    display: block;
+    margin: 0;
+    color: #ffffff;
+    font: 600 12px/1.3 system-ui, sans-serif;
+    overflow-wrap: break-word;
+    text-shadow: 0 1px 5px rgba(5, 35, 85, 0.55);
+}
+
+.ticket-location strong {
+    font-size: 12px;
+}
+
+.ticket-location p {
+    margin: 3px 0 0;
+    color: #d8f2ff;
+    font: 10px/1.3 system-ui, sans-serif;
+}
+
+
+/* =========================================
+   PARTÍCULAS Y EFECTOS
+   ========================================= */
+
+.spark {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background: #d9f5ff;
+
+    box-shadow:
+        0 0 14px #70d4ff,
+        0 0 24px #318de8b3;
+
+    animation: float 5s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-20vh);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   MÚSICA Y PIE DE PÁGINA
+   ========================================= */
+
+.music {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 5;
+}
+
+.footer {
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    color: #b7ddf7;
+
+    font: 10px system-ui, sans-serif;
+    letter-spacing: 0.12em;
+}
+
+/* =========================================
+   COLORES DEFINIDOS EN EL HTML
+   ========================================= */
+
+/* Corazón junto a "Para Ashley" */
+
+#intro .title span {
+    color: #91d9f7 !important;
+}
+
+/* Mensaje de cumpleaños */
+
+#reveal > .subtitle {
+    color: #e0f4ff !important;
+}
+
+/* =========================================
+   ACCESIBILIDAD
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

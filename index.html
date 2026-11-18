@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#100b12">
+    <title>Para Ashley ♡</title>
+
+    <!-- Estilos de la invitación -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Interacciones y animaciones -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <main id="stage">
+        <!-- Control de música -->
+        <button
+            type="button"
+            id="musicBtn"
+            class="ghost music"
+            aria-label="Activar música"
+        >
+            ♫ Música: off
+        </button>
+
+        <!-- ESCENA 1: SOBRE -->
+        <section class="scene active" id="intro">
+            <div class="eyebrow">Una sorpresa para ti</div>
+
+            <h1 class="title">
+                Para Ashley <span style="color: #d35a70">♡</span>
+            </h1>
+
+            <p class="subtitle">Hay algo que he querido decirte...</p>
+
+            <button
+                type="button"
+                id="envelope"
+                class="envelope"
+                aria-label="Abrir el sobre"
+            ></button>
+
+            <p class="subtitle">Toca el sobre para abrir tu carta</p>
+        </section>
+
+        <!-- ESCENA 2: CARTA -->
+        <section class="scene" id="letter">
+            <div class="eyebrow" style="margin-bottom: 28px">
+                Con todo mi cariño
+            </div>
+
+            <div class="paper">
+                <div class="heart">♥</div>
+                <h2>Mi querida Ashley,</h2>
+
+                <p class="dedication line-1">
+                    Quería hacerte un regalo tan especial como tú, y que fuera
+                    realmente inolvidable.
+                </p>
+
+                <p class="dedication line-2">
+                    Así que busqué algo que amaras tanto como yo te amo a ti. 💙
+                </p>
+            </div>
+
+            <button type="button" class="primary" id="next">
+                ¿Quieres descubrirlo? 💙
+            </button>
+        </section>
+
+        <!-- ESCENA 3: REVELACIÓN DEL CONCIERTO -->
+        <section class="scene" id="reveal">
+            <div class="beam left"></div>
+            <div class="beam right"></div>
+
+            <div class="eyebrow">Nos vamos a ver a</div>
+
+            <h2 class="reveal-title">JUNIOR<br>H</h2>
+
+            <p class="subtitle" style="color: #f4cbd0">
+                ¡Feliz cumpleaños, mi amor! ♥
+            </p>
+
+            <div class="ticket">
+
+                <!-- Encabezado -->
+                <small class="ticket-label">
+                    UNA NOCHE PARA RECORDAR
+                </small>
+
+                <h3 class="ticket-artist">JUNIOR H</h3>
+                <p class="ticket-event">EN CONCIERTO</p>
+
+                <div class="ticket-divider"></div>
+
+                <!-- Fecha y hora -->
+                <div class="ticket-details">
+
+                    <div class="ticket-field">
+                        <span>FECHA</span>
+                        <strong>06 FEB 2027</strong>
+                    </div>
+
+                    <div class="ticket-field">
+                        <span>HORA</span>
+                        <strong>9:00 PM</strong>
+                    </div>
+
+                </div>
+
+                <div class="ticket-divider"></div>
+
+                <!-- Ubicación -->
+                <div class="ticket-field ticket-location">
+                    <span>LUGAR</span>
+                    <strong>Estadio El Nido de Los Águilas</strong>
+                    <p>Calz. Cuauhtémoc s/n · Mexicali</p>
+                </div>
+
+                <div class="ticket-divider"></div>
+
+                <!-- Invitada y entradas -->
+                <div class="ticket-details">
+
+                    <div class="ticket-field">
+                        <span>INVITADA ESPECIAL</span>
+                        <strong> Chachi &lt3 </strong>
+                    </div>
+
+                    <div class="ticket-field">
+                        <span>ENTRADAS</span>
+                        <strong>02</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="subtitle" style="font-size: 12px">
+                Ahora si, puedes abrir el sobre🤍
+            </p>
+
+            <button type="button" class="ghost" id="restart">
+                ↻ Volver a verla
+            </button>
+        </section>
+
+        <div class="footer">HECHO CON AMOR · SOLO PARA CHACHI</div>
+    </main>
+</body>
+</html>
